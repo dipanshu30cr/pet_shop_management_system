@@ -1,0 +1,45 @@
+﻿@model IEnumerable<pet_shop_management_system.Models.type>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<style>
+    body {
+        background-image: url('/Content/Images/back_2.jpg');
+        background-size: cover; /* Adjust the background-size property as needed */
+    }
+</style>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.type_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_description)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.type_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type_description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.type_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.type_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.type_id })
+            </td>
+        </tr>
+    }
+
+</table>
